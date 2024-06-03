@@ -23,7 +23,7 @@ const ThemeSwitch = () => {
     // >
     <div className="hidden cursor-pointer xl:block">
       <FaSun
-        className="text-2xl text-main"
+        className="text-main text-2xl"
         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       />
     </div>

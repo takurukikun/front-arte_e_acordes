@@ -1,132 +1,84 @@
-import { routesFront } from '@/utils/constants'
+import { routesFront } from '@/lib/routes'
 
 const getPermissionByPathRoute = (path: string) => {
   const sortedRoutes = routesFront.sort((a, b) => b.path.length - a.path.length)
 
   const route = sortedRoutes.find((route) => path.startsWith(route.path))
-  console.log(route?.path === '/monitoring', route?.permissions)
-  return route?.permissions ?? []
+  return ['admin', 'user']
 }
 
 export const menuItems = [
   {
-    name: 'Home',
+    name: 'Início',
     path: '/',
-    icon: 'home',
     dropdown: null,
     permissions: getPermissionByPathRoute('/'),
+    private: false,
   },
   {
-    name: 'Rol',
-    path: '/rol',
-    icon: 'rol',
+    name: 'Sobre nós',
+    path: '/sobre',
     dropdown: null,
-    permissions: getPermissionByPathRoute('/rol'),
+    permissions: getPermissionByPathRoute('/sobre'),
+    private: false,
   },
   {
-    name: 'Acompanhamento',
-    dropdown: [
-      {
-        name: 'Rols',
-        path: '/monitoring/rols',
-        icon: 'rol',
-        permissions: getPermissionByPathRoute('/monitoring'),
-      },
-      {
-        name: 'Produtos',
-        path: '/monitoring/products',
-        icon: 'product',
-        permissions: getPermissionByPathRoute('/monitoring'),
-      },
-    ],
-    path: '#monitoring',
-    permissions: ['admin', 'manager', 'worker'],
-    icon: 'monitoring',
+    name: 'Galeria de fotos',
+    path: '/galeria-de-fotos',
+    dropdown: null,
+    permissions: getPermissionByPathRoute('/galeria-de-fotos'),
+    private: false,
   },
   {
-    name: 'Items',
+    name: 'Inscrições em cursos',
     dropdown: [
       {
-        name: 'Produtos',
-        path: '/product',
-        icon: 'product',
-        dropdown: null,
-        permissions: getPermissionByPathRoute('/product'),
+        name: 'Violão Popular',
+        path: '/cursos/violao-popular',
+        permissions: getPermissionByPathRoute('/cursos'),
+        private: false,
       },
       {
-        name: 'Grupos',
-        path: '/group',
-        icon: 'group',
-        dropdown: null,
-        permissions: getPermissionByPathRoute('/group'),
+        name: 'Flauta Doce',
+        path: '/cursos/flauta-doce',
+        permissions: getPermissionByPathRoute('/cursos'),
+        private: false,
       },
       {
-        name: 'Tabela de preços',
-        path: '/priceList',
-        icon: 'priceList',
-        dropdown: null,
-        permissions: getPermissionByPathRoute('/priceList'),
+        name: 'Percussão',
+        path: '/cursos/percussao',
+        permissions: getPermissionByPathRoute('/cursos'),
+        private: false,
       },
       {
-        name: 'Defeitos',
-        path: '/defect',
-        icon: 'defect',
-        dropdown: null,
-        permissions: getPermissionByPathRoute('/defect'),
+        name: 'Canto Coral',
+        path: '/cursos/canto-coral',
+        permissions: getPermissionByPathRoute('/cursos'),
+        private: false,
+      },
+      {
+        name: 'Oficina',
+        path: '/cursos/oficina',
+        permissions: getPermissionByPathRoute('/cursos'),
+        private: false,
       },
     ],
-    path: '#items',
-    icon: 'items',
-    permissions: ['admin', 'manager'],
+    path: '#cursos',
+    permissions: ['admin', 'user'],
+    private: false,
   },
   {
-    name: 'Configurações',
-    dropdown: [
-      {
-        name: 'Usuários',
-        path: '/user',
-        icon: 'user',
-        permissions: getPermissionByPathRoute('/user'),
-      },
-      {
-        name: 'Clientes',
-        path: '/client',
-        icon: 'client',
-        permissions: getPermissionByPathRoute('/client'),
-      },
-      {
-        name: 'Setores',
-        path: '/sector',
-        icon: 'sector',
-        permissions: getPermissionByPathRoute('/sector'),
-      },
-      {
-        name: 'Empregados',
-        path: '/employee',
-        icon: 'employee',
-        permissions: getPermissionByPathRoute('/employee'),
-      },
-      {
-        name: 'Registros',
-        path: '/record',
-        icon: 'record',
-        permissions: getPermissionByPathRoute('/record'),
-      },
-      {
-        name: 'Logs',
-        path: '/log',
-        icon: 'log',
-        permissions: getPermissionByPathRoute('/log'),
-      },
-      {
-        name: 'Controle de limpeza',
-        path: '/washControlEmployee',
-        icon: 'washControlEmployee',
-        permissions: getPermissionByPathRoute('/washControlEmployee'),
-      },
-    ],
-    path: '#settings',
-    permissions: ['admin', 'manager'],
-    icon: 'settings',
+    name: 'Contatos',
+    path: '/contatos',
+    dropdown: null,
+    permissions: getPermissionByPathRoute('/contatos'),
+    private: false,
   },
-] as const
+  {
+    name: 'Faça uma doação',
+    path: '/faca-uma-doacao',
+    dropdown: null,
+    permissions: getPermissionByPathRoute('/faca-uma-doacao'),
+    private: false,
+  },
+]

@@ -11,10 +11,10 @@ import {
   DropdownTrigger,
   Pagination,
   Spinner,
+  Table as TableComponent,
   TableBody,
   TableCell,
   TableColumn,
-  Table as TableComponent,
   TableHeader,
   TableRow,
 } from '@nextui-org/react'

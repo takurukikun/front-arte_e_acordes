@@ -1,4 +1,4 @@
-import { UserProps } from '@/types/user'
+import { UserAPIProps } from '@/types/models/user'
 
 export interface AxiosApiError<T> {
   error: keyof T
@@ -7,12 +7,13 @@ export interface AxiosApiError<T> {
 }
 
 export interface AuthStoreProps {
-  profile?: Omit<UserProps, 'id'>
-  setProfile: (profile: UserProps) => void
+  profile?: Omit<UserAPIProps, 'id'>
+  setProfile: (profile: UserAPIProps) => void
   signed?: boolean
   setSigned: (signed: boolean) => void
   logout: () => Promise<void>
 }
+
 export interface TokenProps {
   exp: number
   iat: number
@@ -22,5 +23,5 @@ export interface TokenProps {
 export interface LoginReturnProps {
   idToken: string
   refreshToken: string
-  user: UserProps
+  user: UserAPIProps
 }

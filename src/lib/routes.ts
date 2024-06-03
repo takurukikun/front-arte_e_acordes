@@ -1,24 +1,24 @@
+import { RoleAPIProps } from '@/types/models/user'
 
 export const routesFront: {
-  path: string;
-  private: boolean;
+  path: string
+  private: boolean
+  permissions?: RoleAPIProps[]
 }[] = [
   // private routes
   {
-    path: "/",
+    path: '/',
     private: true,
+    permissions: ['admin', 'user'],
   },
   {
-    path: "/user",
+    path: '/user',
     private: true,
-  },
-  {
-    path: "/vacation",
-    private: true,
+    permissions: ['admin'],
   },
   // public routes
   {
-    path: "/login",
+    path: '/login',
     private: false,
   },
-];
+]

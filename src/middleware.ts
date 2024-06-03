@@ -1,5 +1,5 @@
 import { parse } from 'cookie'
-import { NextResponse, type NextRequest } from 'next/server'
+import { type NextRequest, NextResponse } from 'next/server'
 import { routesFront } from './lib/routes'
 
 // const isAuthorized = (
@@ -31,11 +31,8 @@ export default function middleware(req: NextRequest) {
 
   const absoluteURL = new URL('/', req.nextUrl.origin)
 
-
   if (publicRoute && signed) {
-    if (
-      req.nextUrl.pathname !== '/'
-    ) {
+    if (req.nextUrl.pathname !== '/') {
       return NextResponse.redirect(absoluteURL.toString())
     }
   }
@@ -67,7 +64,5 @@ export default function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    '/',
-  ],
+  matcher: ['/'],
 }

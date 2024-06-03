@@ -1,22 +1,46 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import Loading from '@/components/loading'
+import type { Metadata, Viewport } from 'next'
+import { Montserrat } from 'next/font/google'
+import { Suspense } from 'react'
+import 'react-toastify/dist/ReactToastify.css'
+import { Providers } from './providers'
 
-const inter = Inter({ subsets: ["latin"] });
+import './globals.css'
+
+const font = Montserrat({ weight: '400', subsets: ['latin'] })
+
+const APP_NAME = 'Artes e Acordes'
+const APP_TITLE_TEMPLATE = 'Artes e Acordes | %s'
+const APP_DESCRIPTION = 'Associação de Artes e Acordes'
 
 export const metadata: Metadata = {
-  title: "Associação Arcos",
-  description: "Arcos e Acordes",
-};
+  applicationName: APP_NAME,
+  title: {
+    default: APP_DESCRIPTION,
+    template: APP_TITLE_TEMPLATE,
+  },
+  icons: {
+    apple: '/assets/images/logo.png',
+  },
+  description: APP_DESCRIPTION,
+}
+
+export const viewport: Viewport = {
+  themeColor: '#222',
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>{children}</body>
+    <html lang="pt">
+      <body className={font.className}>
+        <Providers>
+          <main className="bg-background text-foreground">{children}</main>
+        </Providers>
+      </body>
     </html>
-  );
+  )
 }

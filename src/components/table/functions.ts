@@ -1,4 +1,4 @@
-import { format, isValid, parseISO } from 'date-fns'
+import { isValid, parseISO } from 'date-fns'
 
 export function flattenObject(obj: any, parentKey = ''): any {
   let flatObject: any = {}

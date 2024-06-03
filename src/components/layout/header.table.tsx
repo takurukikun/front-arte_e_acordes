@@ -3,9 +3,8 @@
 import { useTableSearch } from '@/hook/table.search'
 import { Button, Input, Tooltip } from '@nextui-org/react'
 import { usePathname, useRouter } from 'next/navigation'
-import { FaArrowLeft, FaFileExcel, FaPlus, FaSearch } from 'react-icons/fa'
-import { exportTableToExcel } from 'components/layout/function'
-import { ColumnProps } from 'components/table/types'
+import { FaArrowLeft, FaPlus, FaSearch } from 'react-icons/fa'
+import { ColumnProps } from '@/components/table/types'
 
 interface HeaderTableProps<TData extends Record<string, any>> {
   path: string
@@ -41,25 +40,6 @@ const HeaderTable = <TData extends Record<string, any>>({
 
   return (
     <div className="flex justify-between gap-5">
-      {!pathNew && !hadDigit && (
-        <div>
-          <Tooltip
-            content="Exportar para Excel"
-            placement="bottom-end"
-            className="text-white"
-            color="success"
-          >
-            <Button
-              isIconOnly
-              color="success"
-              className="rounded-full text-black"
-              onClick={() => exportTableToExcel(data, pathname.slice(1))}
-            >
-              <FaFileExcel size={20} className="text-black" />
-            </Button>
-          </Tooltip>
-        </div>
-      )}
       <div className="flex w-full justify-end gap-5">
         {listagem && (
           <>
