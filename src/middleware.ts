@@ -41,14 +41,14 @@ export default function middleware(req: NextRequest) {
     return NextResponse.next()
   }
 
-  if (!signed && protectedRoute) {
-    if (req.nextUrl.pathname !== '/login') {
-      const loginURL = new URL('/login', req.nextUrl.origin)
-      const originalURL = req.nextUrl.pathname + req.nextUrl.search
-      loginURL.searchParams.append('redirect', encodeURIComponent(originalURL))
-      return NextResponse.redirect(loginURL.toString())
-    }
-  }
+  // if (!signed && protectedRoute) {
+  //   if (req.nextUrl.pathname !== '/login') {
+  //     const loginURL = new URL('/login', req.nextUrl.origin)
+  //     const originalURL = req.nextUrl.pathname + req.nextUrl.search
+  //     loginURL.searchParams.append('redirect', encodeURIComponent(originalURL))
+  //     return NextResponse.redirect(loginURL.toString())
+  //   }
+  // }
 
   // if (
   //   role &&
